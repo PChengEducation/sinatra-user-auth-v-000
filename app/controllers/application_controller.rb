@@ -31,6 +31,8 @@ class ApplicationController < Sinatra::Base
   post '/sessions' do
 
     redirect '/users/home'
+    @user = User.find(session[:id])
+    erb :'/users/home'
   end
 
   get '/sessions/logout' do
